@@ -60,7 +60,7 @@ def resolve_name(item,name_space):
 		# delimiter just disappiers in the result and raise
 		# an error. Any ideas?
 		for prefix,var in map(None,copir[::2],copir[1::2]):
-			if pre is not None: result += prefix
+			if prefix is not None: result += prefix
 			if var is None: continue
 			try:
 				section, option = var.split(":")
