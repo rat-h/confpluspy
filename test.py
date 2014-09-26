@@ -12,4 +12,7 @@ for name  in 'fun','operation','fun(x*y)': print name,"=",cfg["FUNCTIONS"][name]
 
 for name  in 'x','y','exmp1','exmp2','exmp4': print name,"=",cfg["LINKS_AND_STRINGS"][name]
 
-print cfg["TYPES"]["function"](2)
+for name  in 'parameter','function': print name,"=",cfg["PARAMTERS_IN_FUNCTIONS"][name]
+
+print "TEST Function in TYPES                         2**2:", cfg["TYPES"]["function"](2)
+print "TEST Function in PARAMTERS_IN_FUNCTIONS 2+parameter:", cfg["PARAMTERS_IN_FUNCTIONS"]["function"](2)

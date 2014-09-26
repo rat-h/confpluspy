@@ -75,14 +75,14 @@ def resolve_name(item,name_space):
 			else:
 				return None
 		return result
-	# Resolve links @
+	# Resolve links $ First
 	result = ''
-	bld = builder(item,name_space)
+	bld = builder(item,name_space,delimiter="$")
 	if bld is None:
 		return None
 	result = bld
-	# Resolve strings $
-	bld = builder(result,name_space,delimiter="$")
+	# And then Resolve strings @
+	bld = builder(result,name_space)
 	if bld is None:
 		return None
 	result = bld
