@@ -88,12 +88,15 @@ def resolve_name(item,name_space):
 	result = bld
 	return unicode(result)
 
-def confpluspy(file_name,name_space = {},importing=None):
+def confpluspy(file_name,name_space = {}, sections=None, importing=None):
 	"""
 	Main parser.
 	Parameters:
 		file_name	is a name of configuration file.
 		name_space	is a dictionary which will expend by new file.
+		sections	is a list of section for reading.
+					sections allows read same file sevral times prepare name_space for next
+					portion of sections.
 		importing	is a list or tuple of line which will be executed before parsing.
 					importing allows import modules which are used in configuration file.
 	"""
@@ -127,8 +130,11 @@ def confpluspy(file_name,name_space = {},importing=None):
 	if type(name_space) is not dict:
 		raise TypeError("name_Space should be a dictionary")
 	
+	#Checking sections
+	if sections == None:
+		sections = config.sections()
 	#turn all option into a Python objects
-	for section in config.sections():
+	for section in sections:
 		if not section in name_space: name_space[section]={}
 		for option in config.options(section):
 			if option in name_space[section]:
