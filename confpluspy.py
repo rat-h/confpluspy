@@ -136,6 +136,7 @@ def confpluspy(file_name,name_space = {}, sections=None, importing=None):
 	#turn all option into a Python objects
 	for section in sections:
 		if not section in name_space: name_space[section]={}
+		if not config.has_section(section): continue
 		for option in config.options(section):
 			if option in name_space[section]:
 				raise ValueError("Name conflict option \'{}\' exists in section [\'{}\']".format(option,section))
