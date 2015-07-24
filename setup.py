@@ -5,5 +5,5 @@ setup(name='confpluspy',
 	description='Expansion of standard configuration files by Python functionality',
 	author='Ruben Tikidji-Hamburyan',
 	author_email='ruben.tikidji.hamburyan@gmail.com',
-	url='https://code.google.com/p/confpluspy/'
+	url='https://github.com/rat-h/confpluspy'
 )
